@@ -1,1 +1,30 @@
+<html>
+    <head>
+    <script src="phonegap.js"></script>
+<script src="barcodescanner.js"></script>
+<script type="text/javascript">
+            function scanCode(){
+                var scanner = cordova.require("cordova/plugin/BarcodeScanner");
 
+   scanner.scan(
+      function (result) {
+          alert("We got a barcode\n" +
+                "Result: " + result.text + "\n" +
+                "Format: " + result.format + "\n" +
+                "Cancelled: " + result.cancelled);
+      }, 
+      function (error) {
+          alert("Scanning failed: " + error);
+      }
+   );
+            }
+ </script>
+ </head>
+ <body>
+        <h3>Barcode/QR Code Scanner And Encoder123</h3>
+ 
+        <input type="button" value="Scan Code" onclick="scanCode();"/><br/><br/>
+ Data : <br/>
+        <input type="text" name="data" id="data" /><br/><br/>
+ </body>
+</html>
